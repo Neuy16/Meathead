@@ -4,14 +4,14 @@ CREATE DATABASE meathead_db;
 USE meathead_db;
 
 CREATE TABLE accountInfo (
-    userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL
     password VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE maxInfo (
-    maxID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FOREIGN KEY (userID) REFERENCES accountInfo(userID)
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FOREIGN KEY (maxID) REFERENCES accountInfo(id)
     ON DELETE SET NULL,
     maxBench INT,
     maxRepWeight INT,
@@ -19,8 +19,8 @@ CREATE TABLE maxInfo (
 );
 
 CREATE TABLE excersiseTracking (
-    excersiseID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FOREIGN KEY (maxID) REFERENCES maxInfo(maxID)
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FOREIGN KEY (excersiseID) REFERENCES maxInfo(id)
     ON DELETE SET NULL,
     benchPress INT,
     tricepExtensions INT,
