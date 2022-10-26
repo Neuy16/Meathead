@@ -8,5 +8,4 @@ INSERT INTO maxInfo (maxBench, maxRepWeight, maxReps)
 
 INSERT INTO excersiseTracking (benchPress, tricepExtensions, chestFlies)
     VALUES 
-    ()
-
+    (80, 35, 25)
