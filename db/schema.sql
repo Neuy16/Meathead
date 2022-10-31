@@ -2,11 +2,11 @@ DROP DATABASE IF EXISTS meathead_db;
 CREATE DATABASE meathead_db;
 
 USE meathead_db;
-
+ 
 CREATE TABLE accountInfo (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL
+    password VARCHAR(300) NOT NULL
 );
 
 CREATE TABLE maxInfo (
@@ -28,3 +28,4 @@ CREATE TABLE excersiseTracking (
     tricepExtensions INT,
     chestFlies INT
 );
+ 

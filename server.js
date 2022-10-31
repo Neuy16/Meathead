@@ -10,19 +10,16 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOveride = require('method-override')
-
+const { MaxInfo, Exercise, AccountInfo } = require('./models');
+const sequelize = require('sequelize');
 const initializePassport = require('./passport-config')
 initializePassport(
     passport,
     username => users.find(user => user.username === username),
     id => users.find(user => user.id === id)
-)
+); 
 
 
-//database info goes here
-//right now users stores an empty array that is refreshed every time the server restarts
-const users = []
-//
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -36,11 +33,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOveride('_method'))
 
-app.get('/', checkAuthenticated, (req,res) => {
+app.get('/', checkAuthenticated , (req,res) => {
     res.render('index.ejs', { name: 'Rick' })
 })
 
-app.get('/login', checkNotAuthenticated, (req,res) => {
+app.get('/login', checkNotAuthenticated , (req,res) => {
     res.render('login.ejs')
 })
 
@@ -57,18 +54,19 @@ app.get('/register', checkNotAuthenticated, (req,res) => {
 app.post('/register', checkNotAuthenticated, async (req,res) => {
  try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const username = await req.body.username
 //not needed after database is connected
-    users.push({
-        id: Date.now().toString(),
-        username: req.body.username,
+    
+         AccountInfo.create({
+        username: username,
         password: hashedPassword
-    })
-//
-res.redirect('/login')
+    });
+
+    res.redirect('/login')
  } catch {
     res.redirect('/register')
  }
- console.log(users)
+
 })
 
 app.delete('/logOut', (req, res, next) => {
@@ -80,7 +78,7 @@ app.delete('/logOut', (req, res, next) => {
     })
 })
 
-function checkAuthenticated(req, res, next) {
+ function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     }
@@ -94,4 +92,4 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen(3000)
+app.listen(3006)
