@@ -1,4 +1,220 @@
-<h1>hello user:  <%= name %> </h1>
-<form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Log Out</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meathead html</title>
+</head>
+
+<body>
+    <style>
+
+        .fullPage {
+            background-image: url('https://wallpaperaccess.com/full/1462829.jpg');
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .contentBox {
+            background-color:rgba(100, 100, 100, 0.9);
+        }
+
+        .workoutSection {
+            min-height: 65vh;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 18pt;
+        }
+
+    </style>
+
+
+    <div class="container-fluid">
+        <!-- entire page container -->
+
+        <!--  logout button -->
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-light btn-outline-danger border position-absolute top-0 end-0">Log
+                Out</button>
+        </form>
+
+        <div class="row fullPage justify-content-center align-items-center">
+            <!-- page content box -->
+            <div class="col-8">
+                <div class="contentBox p-3 border text-white">
+
+
+                    <header class="topBar row p-3 m-3 border border-danger">
+                        <!-- header styles -->
+                        <!--  need 1 rep max input, rep weight input, rep count input, and submit button -->
+
+                        <div class="1repMaxInput col-xs-12 col-md-3 border border-dark" id="1repMax">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="" placeholder="Step 1: Your 1 Rep Max">
+                            </div>
+                        </div>
+
+                        <div class="repWeightInput col-xs-12 col-md-3 border border-dark" id="repWeight">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Step 2: Your Desired Rep Weight">
+                            </div>
+                        </div>
+
+                        <div class="repCountInput col-xs-12 col-md-3 border border-dark" id="repCount">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Step 3: Amout Of Reps With Weight From Step 2">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary col-xs-12 col-md-3 border border-dark"
+                            id="generateWorkout">Generate Workout</button>
+
+                    </header>
+
+                    <main class="workoutSection row border border-danger">
+                        <div class="workout1 col-xs-12 col-lg-4 p-3 border border-dark">
+                            <!-- workout 1 styles -->
+                            <h3>Bench Press</h3>
+
+                            <div class="m-5">
+                                <h4>Set 1</h4>
+                                <p class="p-3">
+                                    12 reps with <%= bset1 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 2</h4>
+                                <p class="p-3">
+                                    10 reps with <%= bset2 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 3</h4>
+                                <p class="p-3">
+                                    7 reps with <%= bset3 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 4</h4>
+                                <p class="p-3">
+                                    5 reps with <%= bset4 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 5</h4>
+                                <p class="p-3">
+                                    3 reps with <%= bset5 %> lbs
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="workout2 col-xs-12 col-lg-4 p-3 border border-dark">
+                            <!-- workout 2 styles -->
+                            <h3>Tricep Extensions</h3>
+
+                            <div class="m-5">
+                                <h4>Set 1</h4>
+                                <p class="p-3">
+                                    20 reps with <%= tset1 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 2</h4>
+                                <p class="p-3">
+                                    15 reps with <%= tset2 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 3</h4>
+                                <p class="p-3">
+                                    12 reps with <%= tset3 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 4</h4>
+                                <p class="p-3">
+                                    10 reps with <%= tset4 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 5</h4>
+                                <p class="p-3">
+                                    8 reps with <%= tset5 %> lbs
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="workout3 col-xs-12 col-lg-4 p-3 border border-dark">
+                            <!-- workout 3 styles -->
+                            <h3>Chest Flies</h3>
+
+                            <div class="m-5">
+                                <h4>Set 1</h4>
+                                <p class="p-3">
+                                    15 reps with <%= fset1 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 2</h4>
+                                <p class="p-3">
+                                    12 reps with <%= fset2 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 3</h4>
+                                <p class="p-3">
+                                    10 reps with <%= fset3 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 4</h4>
+                                <p class="p-3">
+                                    8 reps with <%= fset4 %> lbs
+                                </p>
+                            </div>
+
+                            <div class="m-5">
+                                <h4>Set 5</h4>
+                                <p class="p-3">
+                                    6 reps with <%= fset5 %> lbs
+                                </p>
+                            </div>
+
+                        </div>
+                    </main>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</body>
+
+</html>
