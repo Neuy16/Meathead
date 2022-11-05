@@ -10,15 +10,14 @@
 
 <body>
     <style>
-
         .fullPage {
             background-image: url('https://wallpaperaccess.com/full/1462829.jpg');
-            height: 100vh;
-            width: 100vw;
+            min-width: 100vw;
+            min-height: 100vh;
         }
 
         .contentBox {
-            background-color:rgba(100, 100, 100, 0.9);
+            background-color: rgba(100, 100, 100, 0.9);
         }
 
         .workoutSection {
@@ -32,7 +31,6 @@
         p {
             font-size: 18pt;
         }
-
     </style>
 
 
@@ -41,45 +39,34 @@
 
         <!--  logout button -->
         <form action="/logout?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-light btn-outline-danger border position-absolute top-0 end-0">Log
+            <button type="submit" class="btn btn-light btn-outline-danger position-absolute top-0 end-0">Log
                 Out</button>
         </form>
 
         <div class="row fullPage justify-content-center align-items-center">
             <!-- page content box -->
             <div class="col-8">
-                <div class="contentBox p-3 border text-white">
+                <div class="contentBox p-3  text-white">
 
+<!--                     <div class="1repMaxInput">
+                        <form action='/' method='post'>
 
-                    <header class="topBar row p-3 m-3 border border-danger">
-                        <!-- header styles -->
-                        <!--  need 1 rep max input, rep weight input, rep count input, and submit button -->
+                            <input type='text' name='userInputMax'>
 
-                        <div class="1repMaxInput col-xs-12 col-md-3 border border-dark" id="1repMax">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="" placeholder="Step 1: Your 1 Rep Max">
-                            </div>
+                            <button class="btn btn-primary" type='submit' value='submit'> Generate Workout </button>
+
+                        </form>
+                    </div> -->
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Input Your 1 Rep Max" aria-label="Input Your 1 Rep Max" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button class="btn btn-primary" type="button">Generate Your Workout</button>
                         </div>
+                      </div>
 
-                        <div class="repWeightInput col-xs-12 col-md-3 border border-dark" id="repWeight">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Step 2: Your Desired Rep Weight">
-                            </div>
-                        </div>
-
-                        <div class="repCountInput col-xs-12 col-md-3 border border-dark" id="repCount">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Step 3: Amout Of Reps With Weight From Step 2">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary col-xs-12 col-md-3 border border-dark"
-                            id="generateWorkout">Generate Workout</button>
-
-                    </header>
-
-                    <main class="workoutSection row border border-danger">
-                        <div class="workout1 col-xs-12 col-lg-4 p-3 border border-dark">
+                    <main class="workoutSection row">
+                        <div class="workout1 col-xs-12 col-lg-4 p-3">
                             <!-- workout 1 styles -->
                             <h3>Bench Press</h3>
 
@@ -120,7 +107,7 @@
 
                         </div>
 
-                        <div class="workout2 col-xs-12 col-lg-4 p-3 border border-dark">
+                        <div class="workout2 col-xs-12 col-lg-4 p-3">
                             <!-- workout 2 styles -->
                             <h3>Tricep Extensions</h3>
 
@@ -161,7 +148,7 @@
 
                         </div>
 
-                        <div class="workout3 col-xs-12 col-lg-4 p-3 border border-dark">
+                        <div class="workout3 col-xs-12 col-lg-4 p-3">
                             <!-- workout 3 styles -->
                             <h3>Chest Flies</h3>
 
