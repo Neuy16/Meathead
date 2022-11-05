@@ -2,53 +2,49 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
-
+const path = require('path');
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
-const passport = require('passport')
+const routes = require('./controllers')
 const flash = require('express-flash')
 const session = require('express-session')
-const methodOveride = require('method-override')
+
 const { MaxInfo, Exercise, AccountInfo } = require('./models');
-const sequelize = require('sequelize');
-const initializePassport = require('./passport-config')
-initializePassport(
-    passport,
-    username => users.find(user => user.username === username),
-    id => users.find(user => user.id === id)
-);
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const bodyParser = require('body-parser')
 
-//database info goes here
-//right now users stores an empty array that is refreshed every time the server restarts
+const sess = {
+    secret: process.env.SESSION_SECRET,
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
 
-const users = []
+app.use(session(sess));
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(flash())
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(methodOveride('_method'))
-
-//sets input as userInputMax
-/* const userInputMax = [225] */
 
 
 
-/* document.getElementById("userInputMax").onclick = function(){
-    userInputMax = document.getElementById("genWorkoutBtn").ariaValue
-    console.log(userInputMax)
-} */
+/* app.use(methodOveride('_method')) */
+
+
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
 let userInputMax = 225;
 
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: true }))
+
+
 app.post('/', async (req, res) => {
     userInputMax = req.body.userInputMax
     /*  userInputMax.push(req.body.userInputMax) */
@@ -81,7 +77,7 @@ var flySet3 = Math.round(userInputMax * .13 / 5) * 5
 var flySet4 = Math.round(userInputMax * .13 / 5) * 5
 var flySet5 = Math.round(userInputMax * .15 / 5) * 5 
 
-app.get('/', checkAuthenticated, (req, res) => {
+/* app.get('/', (req, res) => {
     res.render('index.ejs',
         {
             bset1: benchSet1, bset2: benchSet2, bset3: benchSet3, bset4: benchSet4, bset5: benchSet5,
@@ -90,22 +86,21 @@ app.get('/', checkAuthenticated, (req, res) => {
         })
 })
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
+app.get('/login',(req, res) => {
+    console.log('anotherone')
     res.render('login.ejs')
+
 })
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+app.post('/login',(req,res) => {
+/* Athuentication stuffff 
+});
 
-    successRedirect: '/',
-    failureRedirect: "/login",
-    failureFlash: true
-}))
-
-app.get('/register', checkNotAuthenticated, (req, res) => {
+app.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
+app.post('/register', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         const username = await req.body.username
@@ -115,11 +110,6 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         AccountInfo.create({
             username: username,
             password: hashedPassword
-        })
-
-        users.push({
-            username: username,
-            password: hashedPassword,
         })
 
         res.redirect('/login')
@@ -138,18 +128,8 @@ app.delete('/logOut', (req, res, next) => {
     })
 })
 
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
-    res.redirect('/login')
-}
+ */
 
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/')
-    }
-    next()
-}
-
-app.listen(3000)
+sequelize.sync({ force: false }).then(() => {
+    app.listen(3000, () => console.log('Now listening'));
+  });

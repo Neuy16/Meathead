@@ -17,11 +17,7 @@ let sequelize;
     }
   );
 } ;
-/*  const sequelize = new Sequelize ('meathead_db', 'root', '123654', {
-    host: 'localhost',
-    dialect: 'mysql'
-}); 
-*/
+
 async function authen(){
 try{
     await sequelize.authenticate();
