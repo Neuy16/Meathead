@@ -11,22 +11,7 @@ MaxInfo.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    accountID: {
-        type: DataTypes.INTEGER,
-        references:{
-            model: 'accountInfo',
-            key: 'id',
-        },
-    },
-    maxBench: {
-      type: DataTypes.INTEGER,
-      
-    },
-    maxRepWeight: {
-      type: DataTypes.INTEGER,
-      
-    },
-    maxReps: {
+    maxbench: {
       type: DataTypes.INTEGER,
       
     },
@@ -34,7 +19,7 @@ MaxInfo.init(
   {
     sequelize,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'maxInfo',
   }
 );
