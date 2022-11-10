@@ -1,4 +1,4 @@
-# Meathead
+
   ## Badges
   [![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
  
@@ -27,7 +27,7 @@
   
   
   ## Questions?
-  Heroku - no link yet
+  Heroku - 
   project link - https://docs.google.com/presentation/d/1-f698lrExgZe8PeFaEnrj9-URyD_PkpRN5FVD-tDKwc/edit?usp=sharing
   ### Contributers: 
   [juicyjake12](https://github.com/juicyjake12) 
