@@ -10,13 +10,4 @@ MaxInfo.belongsTo(AccountInfo, {
     foreignKey: 'accountInfoId'
 });
 
-/* AccountInfo.hasOne(Exercise, {
-    foreignKey: 'accountInfoId'
-});
-
-AccountInfo.belongsTo(MaxInfo, {
-    foreignKey: 'accountInfoId'
-}); */
-
-
 module.exports = {AccountInfo, MaxInfo, Exercise};

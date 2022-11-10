@@ -35,21 +35,18 @@
 
 
     <div class="container-fluid">
-        <!-- entire page container -->
 
-        <!--  logout button -->
-        <form action="/logout?_method=DELETE" method="POST">
+        <form action="/logout" method="POST">
             <button type="submit" class="btn btn-light btn-outline-danger position-absolute top-0 end-0">Log
                 Out</button>
         </form>
 
         <div class="row fullPage justify-content-center align-items-center">
-            <!-- page content box -->
             <div class="col-8">
                 <div class="contentBox p-3  text-white">
 
                    <div class="1repMaxInput">
-                        <form action='/max/find/:id' method='post'>
+                        <form action='/max/find/user' method='post'>
 
                             <input type='text' id='userInputMax' name='userInputMax'>
 
@@ -57,17 +54,8 @@
 
                         </form>
                     </div> 
-
-                    <!-- <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Input Your 1 Rep Max" aria-label="Input Your 1 Rep Max" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-primary" type="button">Generate Your Workout</button>
-                        </div> -->
-                      <!-- </div> -->
-
                     <main class="workoutSection row">
                         <div class="workout1 col-xs-12 col-lg-4 p-3">
-                            <!-- workout 1 styles -->
                             <h3>Bench Press</h3>
 
                             <div class="m-5">
@@ -108,7 +96,6 @@
                         </div>
 
                         <div class="workout2 col-xs-12 col-lg-4 p-3">
-                            <!-- workout 2 styles -->
                             <h3>Tricep Extensions</h3>
 
                             <div class="m-5">
@@ -149,7 +136,6 @@
                         </div>
 
                         <div class="workout3 col-xs-12 col-lg-4 p-3">
-                            <!-- workout 3 styles -->
                             <h3>Chest Flies</h3>
 
                             <div class="m-5">
