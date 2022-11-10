@@ -27,7 +27,7 @@
   
   
   ## Questions?
-  Heroku - 
+  Heroku - no link yet
   project link - https://docs.google.com/presentation/d/1-f698lrExgZe8PeFaEnrj9-URyD_PkpRN5FVD-tDKwc/edit?usp=sharing
   ### Contributers: 
   [juicyjake12](https://github.com/juicyjake12) 
