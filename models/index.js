@@ -3,20 +3,11 @@ const MaxInfo = require('./maxInfo');
 const Exercise = require('./exercise');
 
 AccountInfo.hasOne(MaxInfo, {
-    foreignKey: 'AccountInfo_id'
+    foreignKey: 'accountInfoId'
 });
 
 MaxInfo.belongsTo(AccountInfo, {
-    foreignKey: 'AccountInfo_id'
+    foreignKey: 'accountInfoId'
 });
-
-MaxInfo.hasOne(Exercise, {
-    foreignKey: 'max_id'
-});
-
-Exercise.belongsTo(MaxInfo, {
-    foreignKey: 'max_id'
-});
-
 
 module.exports = {AccountInfo, MaxInfo, Exercise};

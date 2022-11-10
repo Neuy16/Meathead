@@ -20,7 +20,7 @@ Exercise.init(
     chestFlies: {
       type: DataTypes.INTEGER,
     },
-    max_id: {
+    maxid: {
       type: DataTypes.INTEGER,
       references: {
         model: 'maxInfo',
@@ -31,7 +31,7 @@ Exercise.init(
   {
     sequelize,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'exercise',
   }
 );
