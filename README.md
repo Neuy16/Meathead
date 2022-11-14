@@ -1,6 +1,6 @@
 
   ## Badges
-  [![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+  None
  
   ## Table of Contents
 
@@ -13,8 +13,7 @@
   * [Questions?](#questions)
   
   ## License
-  Read more about Boost Software License 1.0 here:
-  [Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)
+  None
   
   ## Description
   Our project is a workout app which will track your workout maxes like your bench max. you will be greeted with a sign in/sign up page. passwords will be hashed upon the creation of your password. this site/app will be hosted on heroku.
@@ -27,7 +26,7 @@
   
   
   ## Questions?
-  Heroku - 
+  Heroku - https://benching-app.herokuapp.com/
   project link - https://docs.google.com/presentation/d/1-f698lrExgZe8PeFaEnrj9-URyD_PkpRN5FVD-tDKwc/edit?usp=sharing
   ### Contributers: 
   [juicyjake12](https://github.com/juicyjake12) 
