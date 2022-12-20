@@ -21,7 +21,7 @@ let sequelize;
 async function authen(){
 try{
     await sequelize.authenticate();
-    console.log('connected');
+    console.log('Connected');
 } catch (error){
     console.error('unable to connect');
 }
