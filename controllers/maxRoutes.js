@@ -40,7 +40,7 @@ router.post('/max/find/user', (req, res) =>{
      }});
     })
 
-let userInputMax = 0
+let userInputMax = 135  //preset to 135 until button works
 var benchSet1 = Math.round(userInputMax * .6 / 5) * 5
 var benchSet2 = Math.round(userInputMax * .7 / 5) * 5
 var benchSet3 = Math.round(userInputMax * .8 / 5) * 5

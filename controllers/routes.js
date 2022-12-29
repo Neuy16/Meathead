@@ -11,6 +11,19 @@ router.get('/login', (req, res) => {
 });
 
 
+
+
+router.get('/', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('login.ejs')
+});
+
+
+
+
 router.post('/login', async (req, res) => {
     try {
         const userData = await AccountInfo.findOne({ where: { username: req.body.username } });
